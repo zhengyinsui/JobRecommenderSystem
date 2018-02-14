@@ -1,41 +1,22 @@
-# Flask on Heroku
-yin
-This project is intended to help you tie together some important concepts and
-technologies from the 12-day course, including Git, Flask, JSON, Pandas,
-Requests, Heroku, and Bokeh for visualization.
+# Job Recommender System
 
-The repository contains a basic template for a Flask configuration that will
-work on Heroku.
+This project aims at building an easy-used app and strives to help job seekers to get the jobs sooner and help the companies to staff their openings with better-fit candidates, saving time and money for them.
 
-A [finished example](https://lemurian.herokuapp.com) that demonstrates some basic functionality.
+## Important technologies used for this project
+Python, Jupyter notebook, Git, Flask, JSON, Pandas, Requests, Heroku, and Bokeh for visualization.
 
-## Step 1: Setup and deploy
-- Git clone the existing template repository.
+The final product is [a web app](https://jobrecommender.herokuapp.com/). Check it out!
+
+## Setup and deploy
+- The main python file is app.py.
 - `Procfile`, `requirements.txt`, `conda-requirements.txt`, and `runtime.txt`
   contain some default settings.
 - There is some boilerplate HTML in `templates/`
-- Create Heroku application with `heroku create <app_name>` or leave blank to
-  auto-generate a name.
-- (Suggested) Use the [conda buildpack](https://github.com/kennethreitz/conda-buildpack).
-  If you choose not to, put all requirements into `requirements.txt`
 
-  `heroku config:add BUILDPACK_URL=https://github.com/kennethreitz/conda-buildpack.git`
+## Background of the project
+The job is a very important part of everyone’s life. All of us have experience in searching for jobs. Like now, that’s what we are doing. However, there is inefficiency in the job market. My capstone project is targeting at this problem by providing more information about the job market and building a job recommender system by analyzing a job application dataset from job search website CareerBuilder. There are two parts of the project and the final product will be a web app, which is shown on the screen here.
 
-  The advantages of conda include easier virtual environment management and fast package installation from binaries (as compared to the compilation that pip-installed packages sometimes require).
-  One disadvantage is that binaries take up a lot of memory, and the slug pushed to Heroku is limited to 300 MB. Another note is that the conda buildpack is being deprecated in favor of a Docker solution (see [docker branch](https://github.com/thedataincubator/flask-framework/tree/docker) of this repo for an example).
-- Deploy to Heroku: `git push heroku master`
-- You should be able to see your site at `https://<app_name>.herokuapp.com`
-- A useful reference is the Heroku [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python-o).
+## Content of the project
+None of the job search websites: indeed, Career builder, Glassdoor provide the overview of the job market. On my app, you will be able to look up the overview of the users, job openings or user application habits. For example, this overview figure here shows there are much more job openings available in North Dakoda. It’s less completive to apply for jobs in this state. If you do not care about the working location, you can apply for the jobs in this state. In addition, this figure shows that majority of applicants prefer to apply for jobs from their home state. For example, 95% percent of the users in the texas only apply for jobs from their home states.
 
-## Step 2: Get data from API and put it in pandas
-- Use the `requests` library to grab some data from a public API. This will
-  often be in JSON format, in which case `simplejson` will be useful.
-- Build in some interactivity by having the user submit a form which determines which data is requested.
-- Create a `pandas` dataframe with the data.
-
-## Step 3: Use Bokeh to plot pandas data
-- Create a Bokeh plot from the dataframe.
-- Consult the Bokeh [documentation](http://bokeh.pydata.org/en/latest/docs/user_guide/embed.html)
-  and [examples](https://github.com/bokeh/bokeh/tree/master/examples/embed).
-- Make the plot visible on your website through embedded HTML or other methods - this is where Flask comes in to manage the interactivity and display the desired content.
-- Some good references for Flask: [This article](https://realpython.com/blog/python/python-web-applications-with-flask-part-i/), especially the links in "Starting off", and [this tutorial](https://github.com/bev-a-tron/MyFlaskTutorial).
+The second part of this project is to build a recommender sys. The algorithm I used is item based Collaborative Filtering (CF) algorithm. Here what you need to do is to provide your information. For example, this test user applied for the sales professional job, and the system also recommend this user to apply for sales manager, and retail manager jobs.
