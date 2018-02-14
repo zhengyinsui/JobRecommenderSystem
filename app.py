@@ -34,8 +34,6 @@ from ipywidgets import interact, interactive, fixed, interact_manual
 from bokeh.io import output_file, show
 from bokeh.layouts import widgetbox, column, row
 
-from random import randint
-
 from bokeh.io import output_file, show
 from bokeh.layouts import widgetbox
 from bokeh.models import ColumnDataSource

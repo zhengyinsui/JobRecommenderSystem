@@ -6,6 +6,5 @@ jinja2
 pip
 simplejson
 ipywidgets
-random
 gunicorn==19.7.1
 requests==2.18.4
