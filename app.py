@@ -5,13 +5,10 @@ import pandas as pd
 import bokeh
 from bokeh.plotting import figure, output_notebook, output_file, show, save, reset_output
 from bokeh.embed import components
-
-from bokeh.plotting import figure, show, output_file
-
 from bokeh.sampledata.us_states import data as states
-from bokeh.io import show
+from bokeh.io import output_file, show
 from bokeh.palettes import Viridis6 as palette
-
+import bokeh.palettes
 from bokeh.models import (
     ColumnDataSource,
     HoverTool,
@@ -25,20 +22,11 @@ from bokeh.models import (
     LogTicker
 )
 
-import bokeh.palettes
 from bokeh.layouts import column
-from bokeh.models.widgets import Slider, Select, TextInput, Dropdown
-from bokeh.embed import components
+from bokeh.models.widgets import Slider, Select, TextInput, Dropdown,  DataTable, DateFormatter, TableColumn
 from ipywidgets import interact, interactive, fixed, interact_manual
-from bokeh.io import output_file, show
 from bokeh.layouts import widgetbox, column, row
-
-from bokeh.io import output_file, show
-from bokeh.layouts import widgetbox
-from bokeh.models import ColumnDataSource
-from bokeh.models.widgets import DataTable, DateFormatter, TableColumn
 from bokeh.io import output_notebook
-from bokeh.layouts import widgetbox, column, row
 
 del states["HI"]
 del states["AK"]
