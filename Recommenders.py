@@ -11,6 +11,12 @@ class item_similarity_recommender_py():
         self.rev_jobs_dict = None
         self.item_similarity_recommendations = None
 
+    #Create the item similarity based recommender system model
+    def create(self, train_data, UserID, item_id):
+        self.train_data = train_data
+        self.UserID = UserID
+        self.item_id = item_id
+
     #Get unique items (jobs) corresponding to a given user
     def get_user_items(self, user):
         user_data = self.train_data[self.train_data[self.UserID] == user]
@@ -52,21 +58,21 @@ class item_similarity_recommender_py():
         #in the training data
         #############################################################
         for i in range(0,len(all_jobs)):
-            #Calculate unique listeners (users) of job (item) i
+            #Calculate unique users of job i
             jobs_i_data = self.train_data[self.train_data[self.item_id] == all_jobs[i]]
             users_i = set(jobs_i_data[self.UserID].unique())
 
             for j in range(0,len(user_jobs)):
 
-                #Get unique listeners (users) of job (item) j
+                #Get unique users of job j
                 users_j = user_jobs_users[j]
 
-                #Calculate intersection of listeners of jobs i and j
+                #Calculate intersection of users of jobs i and j
                 users_intersection = users_i.intersection(users_j)
 
                 #Calculate cooccurence_matrix[i,j] as Jaccard Index
                 if len(users_intersection) != 0:
-                    #Calculate union of listeners of jobs i and j
+                    #Calculate union of users of jobs i and j
                     users_union = users_i.union(users_j)
 
                     cooccurence_matrix[j,i] = float(len(users_intersection))/float(len(users_union))
@@ -108,11 +114,7 @@ class item_similarity_recommender_py():
         else:
             return df
 
-    #Create the item similarity based recommender system model
-    def create(self, train_data, UserID, item_id):
-        self.train_data = train_data
-        self.UserID = UserID
-        self.item_id = item_id
+
 
     #Use the item similarity based recommender system model to
     #make recommendations
