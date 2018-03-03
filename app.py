@@ -85,9 +85,6 @@ def overview(states):
         if(data['plot'][i] > max_val){
             max_val = data['plot'][i];
         }
-        if(data['plot'][i] < min_val){
-            min_val = data['plot'][i];
-        }
 
     }
     for (i=0;i < data['x'].length;i++){
